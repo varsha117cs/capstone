@@ -1,6 +1,6 @@
 pipeline{  
     environment {
-    registry = "<<Your_Docker_Hub_Account/spring-demo>>"
+    registry = "https://hub.docker.com/repository/docker/968545/spring-demo"
     }
   agent any
   stages {
@@ -22,7 +22,7 @@ pipeline{
               
               script {
                  
-                  docker.withRegistry( '', registryCredential ) {
+                  docker.withRegistry( 'dckr_pat_2kfAvc6RCA8KDGz3sOxCkWtDIiA', registryCredential ) {
                       def appimage = docker.build registry + ":$BUILD_NUMBER"
                       appimage.push()
                       
