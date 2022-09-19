@@ -1,6 +1,6 @@
 pipeline{  
     environment {
-    registry = "https://hub.docker.com/repository/docker/968545/spring-demo"
+    registry = "968545/spring-demo"
     }
   agent any
   stages {
@@ -16,7 +16,7 @@ pipeline{
       
        stage('Publish') {
            environment {
-               registryCredential = 'dockerhub'
+               registryCredential = 'docker'
            }
            steps{
               
